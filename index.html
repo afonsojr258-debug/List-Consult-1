@@ -368,6 +368,81 @@
             transform: translateY(-10px);
         }
 
+        /* Team Section - NOVA SEÇÃO */
+        .team {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .team h2 {
+            color: white;
+        }
+
+        .team-card {
+            max-width: 350px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--amarelo-sol);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--amarelo-sol);
+        }
+
+        .team-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .team-role {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .team-role i {
+            margin-right: 5px;
+            color: var(--amarelo-sol);
+        }
+
         /* Services Section - COMPLETO */
         .services {
             background-color: #f8f9fa;
@@ -524,7 +599,7 @@
             transform: scale(1.1);
         }
 
-        /* Nova Seção: Vídeos de Graduação */
+        /* Nova Seção: Vídeos de Graduação e Depoimentos */
         .graduation-videos {
             background: linear-gradient(135deg, var(--laranja-energia) 0%, var(--vermelho-paixao) 100%);
             color: white;
@@ -613,6 +688,34 @@
         .video-caption p {
             color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
+        }
+
+        /* Testimonial Video Card - DESTAQUE PARA O DEPOIMENTO */
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--azul-ceu) 0%, var(--roxo-criatividade) 100%);
+            border: 3px solid var(--amarelo-sol);
+            transform: scale(1.02);
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-badge {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--amarelo-sol);
+            color: var(--preto-texto);
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .testimonial-badge i {
+            margin-right: 5px;
         }
 
         /* Values Section */
@@ -1176,7 +1279,7 @@
                 padding: 50px 0;
             }
             
-            .about, .services, .values, .contact {
+            .about, .services, .team, .values, .contact {
                 padding: 60px 0;
             }
 
@@ -1341,9 +1444,10 @@
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#about">Sobre</a></li>
+                        <li><a href="#team">Equipa</a></li>
                         <li><a href="#services">Serviços</a></li>
                         <li><a href="#results">Resultados</a></li>
-                        <li><a href="#graduation">Graduações</a></li>
+                        <li><a href="#graduation">Depoimentos</a></li>
                         <li><a href="#values">Valores</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
@@ -1363,9 +1467,10 @@
             <ul>
                 <li><a href="#home" class="drawer-link">Início</a></li>
                 <li><a href="#about" class="drawer-link">Sobre</a></li>
+                <li><a href="#team" class="drawer-link">Equipa</a></li>
                 <li><a href="#services" class="drawer-link">Serviços</a></li>
                 <li><a href="#results" class="drawer-link">Resultados</a></li>
-                <li><a href="#graduation" class="drawer-link">Graduações</a></li>
+                <li><a href="#graduation" class="drawer-link">Depoimentos</a></li>
                 <li><a href="#values" class="drawer-link">Valores</a></li>
                 <li><a href="#contact" class="drawer-link">Contacto</a></li>
             </ul>
@@ -1405,6 +1510,26 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - NOVA SEÇÃO COM O DIRECTOR -->
+    <section class="team" id="team">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipa de Trabalho</h2>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="https://i.postimg.cc/SRXqYDrd/IMG-20260314-WA0042.jpg" alt="Lisdálio Rupava">
+                </div>
+                <h3 class="team-name">Lisdálio Rupava</h3>
+                <p class="team-title">Director Geral</p>
+                <p class="team-role">
+                    <i class="fas fa-graduation-cap"></i> Consultor Académico
+                </p>
+                <p class="team-role">
+                    <i class="fas fa-chalkboard-teacher"></i> Mentor
+                </p>
             </div>
         </div>
     </section>
@@ -1600,13 +1725,33 @@
         </div>
     </div>
 
-    <!-- Nova Seção: Vídeos de Graduação -->
+    <!-- Nova Seção: Vídeos de Graduação e Depoimentos -->
     <section class="graduation-videos" id="graduation">
         <div class="container">
-            <h2 class="section-title">Momentos de Vitória</h2>
-            <p>Celebre connosco os momentos especiais dos nossos clientes que alcançaram o sucesso académico</p>
+            <h2 class="section-title">Depoimentos e Momentos de Vitória</h2>
+            <p>Veja o que nossos clientes dizem sobre a Lis Consult & Services</p>
             
             <div class="videos-container">
+                <!-- NOVO VÍDEO DE DEPOIMENTO ADICIONADO -->
+                <div class="video-card testimonial-card">
+                    <div class="testimonial-badge">
+                        <i class="fas fa-star"></i> Depoimento
+                    </div>
+                    <div class="video-wrapper">
+                        <video poster="https://i.postimg.cc/J0Dg6rsh/Screenshot-20251107-213618.jpg" controls>
+                            <source src="https://github.com/afonsojr258-debug/List-Consult-1/blob/main/VID-20260314-WA0061.mp4?raw=true" type="video/mp4">
+                            Seu navegador não suporta o elemento de vídeo.
+                        </video>
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-caption">
+                        <h4>Depoimento de Cliente</h4>
+                        <p>"A Lis Consult mudou minha vida académica! Recomendo a todos."</p>
+                    </div>
+                </div>
+                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video poster="https://i.postimg.cc/J0Dg6rsh/Screenshot-20251107-213618.jpg" controls>
