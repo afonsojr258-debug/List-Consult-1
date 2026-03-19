@@ -599,6 +599,43 @@
             transform: scale(1.1);
         }
 
+        /* Nova Seção: Atenção (Panfletos) */
+        .flyers {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .flyers-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .flyers-gallery .gallery-item {
+            flex: 0 0 auto;
+            width: auto;
+            height: auto;
+            max-width: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .flyers-gallery .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .flyers-gallery .gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
         /* Nova Seção: Vídeos de Graduação e Depoimentos */
         .graduation-videos {
             background: linear-gradient(135deg, var(--laranja-energia) 0%, var(--vermelho-paixao) 100%);
@@ -1336,6 +1373,10 @@
                 width: 35px;
                 height: 35px;
             }
+
+            .flyers-gallery .gallery-item {
+                max-width: 90%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1447,6 +1488,7 @@
                         <li><a href="#team">Equipa</a></li>
                         <li><a href="#services">Serviços</a></li>
                         <li><a href="#results">Resultados</a></li>
+                        <li><a href="#atencao">Atenção</a></li> <!-- NOVO LINK -->
                         <li><a href="#graduation">Depoimentos</a></li>
                         <li><a href="#values">Valores</a></li>
                         <li><a href="#contact">Contacto</a></li>
@@ -1470,6 +1512,7 @@
                 <li><a href="#team" class="drawer-link">Equipa</a></li>
                 <li><a href="#services" class="drawer-link">Serviços</a></li>
                 <li><a href="#results" class="drawer-link">Resultados</a></li>
+                <li><a href="#atencao" class="drawer-link">Atenção</a></li> <!-- NOVO LINK -->
                 <li><a href="#graduation" class="drawer-link">Depoimentos</a></li>
                 <li><a href="#values" class="drawer-link">Valores</a></li>
                 <li><a href="#contact" class="drawer-link">Contacto</a></li>
@@ -1700,6 +1743,30 @@
                     <button class="gallery-nav-btn" id="next-btn">
                         <i class="fas fa-chevron-right"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: ATENÇÃO (PANFLETOS) -->
+    <section class="flyers" id="atencao">
+        <div class="container">
+            <h2 class="section-title">Atenção</h2>
+            <p>Confira nossos panfletos informativos</p>
+            <div class="flyers-gallery">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/nzhzcdr6/20260319-211351.jpg" alt="Panfleto 1">
+                    <div class="gallery-caption">
+                        <h4>Panfleto Informativo</h4>
+                        <p>Informações importantes sobre nossos serviços</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/HWJMwxW6/9b6898cbf33e409aa5e2b5b9c9568e63(1).jpg" alt="Panfleto 2">
+                    <div class="gallery-caption">
+                        <h4>Panfleto de Divulgação</h4>
+                        <p>Promoções e novidades</p>
+                    </div>
                 </div>
             </div>
         </div>
