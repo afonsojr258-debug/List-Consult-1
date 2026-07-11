@@ -6,7 +6,6 @@
     <title>Lis Consult & Services - Moçambique</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        /* ===== CORES ===== */
         :root {
             --verde-esperanca: #2ecc71;
             --amarelo-sol: #f1c40f;
@@ -308,15 +307,9 @@
             color: var(--preto-texto);
         }
 
-        .payment-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
         .payment-card {
+            max-width: 500px;
+            margin: 0 auto;
             background: var(--cinza-claro);
             border-radius: 20px;
             padding: 35px 30px;
@@ -342,15 +335,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        .payment-card .card-badge.mpesa {
             background: #e74c3c;
-            color: white;
-        }
-
-        .payment-card .card-badge.emola {
-            background: #2ecc71;
             color: white;
         }
 
@@ -364,10 +349,6 @@
 
         .payment-card .card-icon .icon-mpesa {
             color: #e74c3c;
-        }
-
-        .payment-card .card-icon .icon-emola {
-            color: #2ecc71;
         }
 
         .payment-card h3 {
@@ -553,32 +534,18 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
         }
 
         .payment-card .btn-pay:hover:not(:disabled) {
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
         }
 
         .payment-card .btn-pay:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none !important;
-        }
-
-        .payment-card .btn-pay.mpesa-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-        }
-
-        .payment-card .btn-pay.mpesa-btn:hover:not(:disabled) {
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
-        }
-
-        .payment-card .btn-pay.emola-btn {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-        }
-
-        .payment-card .btn-pay.emola-btn:hover:not(:disabled) {
-            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
         }
 
         .payment-card .spinner-small {
@@ -602,6 +569,7 @@
             display: none;
             font-size: 14px;
             line-height: 1.5;
+            text-align: center;
         }
 
         .payment-response.show {
@@ -624,38 +592,14 @@
             font-weight: 700;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            margin-bottom: 4px;
+            font-size: 18px;
         }
 
         .payment-response .response-body {
-            font-size: 13px;
-            white-space: pre-wrap;
-            word-break: break-word;
-        }
-
-        @media (max-width: 768px) {
-            .payment-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .payment-card {
-                padding: 25px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .payment-card .phone-input-group {
-                flex-wrap: wrap;
-            }
-
-            .payment-card .phone-input-group .prefix {
-                width: 100%;
-                border-right: none;
-                border-bottom: 2px solid #e2e8f0;
-                text-align: center;
-            }
+            font-size: 14px;
+            margin-top: 4px;
         }
 
         /* ===== ABOUT ===== */
@@ -1836,93 +1780,50 @@
         </div>
     </section>
 
-    <!-- ===== PAYMENT SECTION ===== -->
+    <!-- ===== PAYMENT SECTION - APENAS M-PESA ===== -->
     <section class="payment-section" id="payment">
         <div class="container">
             <h2 class="section-title">Pagamento de Serviços</h2>
             <p style="text-align:center; max-width:600px; margin:0 auto 40px; color:#4a5568;">
-                Selecione o serviço que deseja pagar e escolha o método de pagamento.
+                Selecione o serviço que deseja pagar e preencha os dados abaixo.
             </p>
 
-            <div class="payment-grid">
-                <!-- ===== CARTÃO M-PESA ===== -->
-                <div class="payment-card" id="mpesa-card">
-                    <span class="card-badge mpesa">M-Pesa</span>
-                    <div class="card-icon">
-                        <i class="fas fa-mobile-alt icon-mpesa"></i>
-                        <span style="font-size:18px; font-weight:600;">M-Pesa</span>
-                    </div>
-                    <h3>Pagar com M-Pesa</h3>
-                    <p>Receba uma notificação USSD no seu telemóvel para confirmar o pagamento.</p>
+            <div class="payment-card" id="mpesa-card">
+                <span class="card-badge">M-Pesa</span>
+                <div class="card-icon">
+                    <i class="fas fa-mobile-alt icon-mpesa"></i>
+                    <span style="font-size:18px; font-weight:600;">M-Pesa</span>
+                </div>
+                <h3>Pagar com M-Pesa</h3>
+                <p>Receba uma notificação USSD no seu telemóvel para confirmar o pagamento.</p>
 
-                    <!-- Seleção de Serviço -->
-                    <div class="service-selector">
-                        <label for="mpesa-service"><i class="fas fa-list"></i> Selecione o serviço</label>
-                        <select id="mpesa-service" class="service-select">
-                            <option value="3000">Projecto - 3.000 MT</option>
-                            <option value="15000">Monografia - 15.000 MT</option>
-                            <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
-                        </select>
-                        <div class="service-price-display">
-                            <span>💰 Valor a pagar:</span>
-                            <span class="price-value" id="mpesa-price">3.000 MT</span>
-                        </div>
-                    </div>
-
-                    <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258</div>
-                    <div class="phone-input-group">
-                        <span class="prefix">+258</span>
-                        <input type="tel" class="phone-input" placeholder="84 123 4567" value="841234567" />
-                    </div>
-
-                    <button class="btn-pay mpesa-btn" data-method="mpesa">
-                        <i class="fas fa-credit-card"></i> Pagar com M-Pesa
-                    </button>
-
-                    <div class="payment-response" data-response="mpesa">
-                        <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
-                        <div class="response-body"></div>
+                <!-- Seleção de Serviço -->
+                <div class="service-selector">
+                    <label for="mpesa-service"><i class="fas fa-list"></i> Selecione o serviço</label>
+                    <select id="mpesa-service" class="service-select">
+                        <option value="3000">Projecto - 3.000 MT</option>
+                        <option value="15000">Monografia - 15.000 MT</option>
+                        <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
+                    </select>
+                    <div class="service-price-display">
+                        <span>💰 Valor a pagar:</span>
+                        <span class="price-value" id="mpesa-price">3.000 MT</span>
                     </div>
                 </div>
 
-                <!-- ===== CARTÃO E-MOLA ===== -->
-                <div class="payment-card" id="emola-card">
-                    <span class="card-badge emola">e-Mola</span>
-                    <div class="card-icon">
-                        <i class="fas fa-wallet icon-emola"></i>
-                        <span style="font-size:18px; font-weight:600;">e-Mola</span>
-                    </div>
-                    <h3>Pagar com e-Mola</h3>
-                    <p>Receba uma notificação USSD no seu telemóvel para confirmar o pagamento.</p>
+                <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258 (começa com 84 ou 85)</div>
+                <div class="phone-input-group">
+                    <span class="prefix">+258</span>
+                    <input type="tel" class="phone-input" placeholder="84 xxx xxxx" value="" />
+                </div>
 
-                    <!-- Seleção de Serviço -->
-                    <div class="service-selector">
-                        <label for="emola-service"><i class="fas fa-list"></i> Selecione o serviço</label>
-                        <select id="emola-service" class="service-select">
-                            <option value="3000">Projecto - 3.000 MT</option>
-                            <option value="15000">Monografia - 15.000 MT</option>
-                            <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
-                        </select>
-                        <div class="service-price-display">
-                            <span>💰 Valor a pagar:</span>
-                            <span class="price-value" id="emola-price">3.000 MT</span>
-                        </div>
-                    </div>
+                <button class="btn-pay" id="pay-btn">
+                    <i class="fas fa-credit-card"></i> Pagar com M-Pesa
+                </button>
 
-                    <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258</div>
-                    <div class="phone-input-group">
-                        <span class="prefix">+258</span>
-                        <input type="tel" class="phone-input" placeholder="86 123 4567" value="861234567" />
-                    </div>
-
-                    <button class="btn-pay emola-btn" data-method="emola">
-                        <i class="fas fa-credit-card"></i> Pagar com e-Mola
-                    </button>
-
-                    <div class="payment-response" data-response="emola">
-                        <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
-                        <div class="response-body"></div>
-                    </div>
+                <div class="payment-response" id="payment-response">
+                    <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
+                    <div class="response-body"></div>
                 </div>
             </div>
         </div>
@@ -2334,7 +2235,6 @@
             });
         });
 
-        // Smooth Scroll
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2579,92 +2479,74 @@
         });
 
         // ================================================================
-        // PAYMENT LOGIC - COM PREÇOS FIXOS
+        // PAYMENT - APENAS M-PESA
         // ================================================================
 
-        // ===== CONFIGURAÇÕES =====
         const CONFIG = {
             MERCHANT_ID: '043ee866-e219-43a3-a44e-897a640d4a1b',
             API_KEY: 'sk_live_ym6YZPW2VCkfwg2UFL2z8qAMAPsl75H4',
             API_URL: 'https://gyqoaningqhurhvdugne.supabase.co/functions/v1/payment-orchestrator',
-            WALLET_CODES: {
-                mpesa: '58953',
-                emola: '50806'
-            },
+            WALLET_CODE: '58953',
             CURRENCY: 'MZN'
         };
 
-        // ===== Mapeamento de serviços =====
         const SERVICE_NAMES = {
             '3000': 'Projecto',
             '15000': 'Monografia',
             '40000': 'Dissertação de Mestrado'
         };
 
-        // ===== Atualizar preço ao selecionar serviço =====
-        document.querySelectorAll('.service-select').forEach(select => {
-            select.addEventListener('change', function() {
-                const value = this.value;
-                const priceDisplay = this.closest('.payment-card').querySelector('.price-value');
-                const formattedPrice = parseInt(value).toLocaleString('pt-MZ') + ' MT';
-                priceDisplay.textContent = formattedPrice;
-            });
+        // Atualizar preço ao selecionar serviço
+        const serviceSelect = document.getElementById('mpesa-service');
+        const priceDisplay = document.getElementById('mpesa-price');
+
+        serviceSelect.addEventListener('change', function() {
+            const value = this.value;
+            const formattedPrice = parseInt(value).toLocaleString('pt-MZ') + ' MT';
+            priceDisplay.textContent = formattedPrice;
         });
 
-        // ===== FUNÇÃO DE PAGAMENTO =====
-        async function processPayment(method, cardElement) {
-            const select = cardElement.querySelector('.service-select');
-            const phoneInput = cardElement.querySelector('.phone-input');
-            const btn = cardElement.querySelector('.btn-pay');
-            const responseDiv = cardElement.querySelector('.payment-response');
+        // Botão de pagamento
+        const payBtn = document.getElementById('pay-btn');
+        const phoneInput = document.querySelector('.phone-input');
+        const responseDiv = document.getElementById('payment-response');
 
-            const serviceValue = select.value;
+        payBtn.addEventListener('click', async function() {
+            const serviceValue = serviceSelect.value;
             const amount = parseFloat(serviceValue);
             const serviceName = SERVICE_NAMES[serviceValue] || 'Serviço';
             const phoneRaw = phoneInput.value.replace(/\D/g, '');
 
-            // ===== VALIDAÇÕES =====
+            // Validações
             if (!phoneRaw || phoneRaw.length < 9) {
-                showPaymentResponse(responseDiv, false, 'Telefone inválido',
-                    'Digite um número válido com pelo menos 9 dígitos.\nExemplo: 84 123 4567'
-                );
+                showResponse(false, '❌ Telefone inválido', 'Digite um número válido com pelo menos 9 dígitos.');
                 return;
             }
 
-            // Valida prefixo conforme método
             const prefix = phoneRaw.substring(0, 2);
-            if (method === 'mpesa' && !['84', '85'].includes(prefix)) {
-                showPaymentResponse(responseDiv, false, 'Número inválido para M-Pesa',
-                    'Para M-Pesa, o número deve começar com 84 ou 85.\nExemplo: 84 123 4567'
-                );
-                return;
-            }
-            if (method === 'emola' && !['86', '87'].includes(prefix)) {
-                showPaymentResponse(responseDiv, false, 'Número inválido para e-Mola',
-                    'Para e-Mola, o número deve começar com 86 ou 87.\nExemplo: 86 123 4567'
-                );
+            if (!['84', '85'].includes(prefix)) {
+                showResponse(false, '❌ Número inválido', 'Para M-Pesa, o número deve começar com 84 ou 85.');
                 return;
             }
 
             const phone = '+258' + phoneRaw;
 
-            // ===== PAYLOAD =====
             const payload = {
                 action: 'process',
-                payment_method: method,
+                payment_method: 'mpesa',
                 merchant_id: CONFIG.MERCHANT_ID,
-                wallet_code: CONFIG.WALLET_CODES[method],
+                wallet_code: CONFIG.WALLET_CODE,
                 amount: amount,
                 currency: CONFIG.CURRENCY,
                 phone: phone
             };
 
-            // ===== LOADING =====
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner-small"></span> Processando...';
+            // Loading
+            payBtn.disabled = true;
+            payBtn.innerHTML = '<span class="spinner-small"></span> Processando...';
             responseDiv.classList.remove('show', 'success', 'error');
 
-            console.log('📤 Enviando pagamento:', JSON.stringify(payload, null, 2));
+            console.log('📤 Enviando:', JSON.stringify(payload, null, 2));
 
             try {
                 const response = await fetch(CONFIG.API_URL, {
@@ -2679,40 +2561,21 @@
                 const data = await response.json();
 
                 if (response.ok && data.success !== false) {
-                    showPaymentResponse(responseDiv, true, '✅ Pagamento iniciado!',
-                        `📱 Telefone: ${phone}\n` +
-                        `💰 Serviço: ${serviceName}\n` +
-                        `💵 Valor: ${amount.toFixed(2)} ${CONFIG.CURRENCY}\n` +
-                        `🆔 Transação: ${data.transaction_id || data.id || data.reference || 'N/A'}\n\n` +
-                        `📌 Uma notificação USSD foi enviada para o seu telemóvel.\n` +
-                        `Confirme a transação no seu celular.` +
-                        (data.status ? `\n\n📊 Status: ${data.status}` : '')
-                    );
+                    showResponse(true, '✅ Sucesso!', 'Pagamento iniciado com sucesso! Confirme no seu telemóvel.');
                 } else {
                     const errorMsg = data.error || data.message || 'Erro desconhecido';
-                    showPaymentResponse(responseDiv, false, '❌ Falha no pagamento',
-                        `Erro: ${errorMsg}\n\n` +
-                        `📱 Telefone: ${phone}\n` +
-                        `💰 Serviço: ${serviceName}\n` +
-                        `💵 Valor: ${amount.toFixed(2)} ${CONFIG.CURRENCY}\n\n` +
-                        `📋 Detalhes:\n${JSON.stringify(data, null, 2)}`
-                    );
+                    showResponse(false, '❌ Falha no pagamento', `Erro: ${errorMsg}`);
                 }
 
             } catch (error) {
-                showPaymentResponse(responseDiv, false, '❌ Erro de conexão',
-                    `Não foi possível conectar ao servidor.\n\n` +
-                    `Erro: ${error.message}\n\n` +
-                    `Verifique sua conexão com a internet.`
-                );
+                showResponse(false, '❌ Erro de conexão', `Erro: ${error.message}`);
             } finally {
-                btn.disabled = false;
-                btn.innerHTML = `<i class="fas fa-credit-card"></i> Pagar com ${method === 'mpesa' ? 'M-Pesa' : 'e-Mola'}`;
+                payBtn.disabled = false;
+                payBtn.innerHTML = '<i class="fas fa-credit-card"></i> Pagar com M-Pesa';
             }
-        }
+        });
 
-        // ===== EXIBIR RESPOSTA DO PAGAMENTO =====
-        function showPaymentResponse(responseDiv, success, title, content) {
+        function showResponse(success, title, content) {
             responseDiv.classList.remove('success', 'error');
             responseDiv.classList.add('show', success ? 'success' : 'error');
 
@@ -2726,15 +2589,6 @@
 
             responseDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        // ===== EVENTOS DOS BOTÕES DE PAGAMENTO =====
-        document.querySelectorAll('.btn-pay').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const method = this.getAttribute('data-method');
-                const card = this.closest('.payment-card');
-                processPayment(method, card);
-            });
-        });
 
         // ================================================================
         // SCROLL ANIMATION
