@@ -362,6 +362,40 @@
             margin-bottom: 18px;
         }
 
+        /* Destaque para o E-book */
+        .ebook-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: #2c3e50;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .ebook-badge i {
+            margin-right: 5px;
+        }
+
+        .ebook-download-hint {
+            background: #ebf8ff;
+            border: 2px dashed #3498db;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #2c5282;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ebook-download-hint i {
+            font-size: 20px;
+            color: #2b6cb0;
+        }
+
         /* Seleção de Serviço com Preços */
         .service-selector {
             margin: 16px 0;
@@ -600,6 +634,42 @@
         .payment-response .response-body {
             font-size: 14px;
             margin-top: 4px;
+        }
+
+        /* Botão de download */
+        .download-btn-container {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .download-btn i {
+            font-size: 20px;
+        }
+
+        .download-btn.hidden {
+            display: none;
         }
 
         /* ===== ABOUT ===== */
@@ -1611,6 +1681,10 @@
             .image-modal-nav-btn { width: 35px; height: 35px; font-size: 16px; padding: 0; }
             .image-modal-close { top: -25px; font-size: 20px; width: 30px; height: 30px; }
             .image-modal-counter { top: -35px; font-size: 14px; padding: 3px 10px; }
+
+            .payment-card { padding: 20px 15px; }
+            .phone-input-group { flex-wrap: wrap; }
+            .phone-input-group .prefix { width: 100%; border-right: none; border-bottom: 2px solid #e2e8f0; text-align: center; }
         }
     </style>
 </head>
@@ -1780,7 +1854,7 @@
         </div>
     </section>
 
-    <!-- ===== PAYMENT SECTION - APENAS M-PESA ===== -->
+    <!-- ===== PAYMENT SECTION - APENAS M-PESA COM E-BOOK ===== -->
     <section class="payment-section" id="payment">
         <div class="container">
             <h2 class="section-title">Pagamento de Serviços</h2>
@@ -1804,6 +1878,9 @@
                         <option value="3000">Projecto - 3.000 MT</option>
                         <option value="15000">Monografia - 15.000 MT</option>
                         <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
+                        <option value="499" style="background: #fef3c7; font-weight:700;">
+                            📘 E-book - 499 MT
+                        </option>
                     </select>
                     <div class="service-price-display">
                         <span>💰 Valor a pagar:</span>
@@ -1811,10 +1888,21 @@
                     </div>
                 </div>
 
+                <!-- Dica para E-book -->
+                <div class="ebook-download-hint" id="ebook-hint">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <strong>📘 E-book "Monografia e Dissertação"</strong>
+                        <span style="display:block; font-size:12px; color:#4a5568;">
+                            Após pagamento com sucesso, o download será liberado automaticamente.
+                        </span>
+                    </div>
+                </div>
+
                 <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258 (começa com 84 ou 85)</div>
                 <div class="phone-input-group">
                     <span class="prefix">+258</span>
-                    <input type="tel" class="phone-input" placeholder="84 xxx xxxx" value="" />
+                    <input type="tel" class="phone-input" placeholder="84 123 4567" value="841234567" />
                 </div>
 
                 <button class="btn-pay" id="pay-btn">
@@ -1824,6 +1912,16 @@
                 <div class="payment-response" id="payment-response">
                     <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
                     <div class="response-body"></div>
+                </div>
+
+                <!-- Botão de Download (oculto inicialmente) -->
+                <div class="download-btn-container">
+                    <a href="Ebook Monografia E Dissertação_20260624_145059_0000.pdf" 
+                       class="download-btn hidden" 
+                       id="download-btn"
+                       download>
+                        <i class="fas fa-download"></i> Baixar E-book
+                    </a>
                 </div>
             </div>
         </div>
@@ -2479,7 +2577,7 @@
         });
 
         // ================================================================
-        // PAYMENT - APENAS M-PESA
+        // PAYMENT - APENAS M-PESA COM E-BOOK
         // ================================================================
 
         const CONFIG = {
@@ -2493,17 +2591,25 @@
         const SERVICE_NAMES = {
             '3000': 'Projecto',
             '15000': 'Monografia',
-            '40000': 'Dissertação de Mestrado'
+            '40000': 'Dissertação de Mestrado',
+            '499': 'E-book'
         };
+
+        const isEbook = (value) => value === '499';
 
         // Atualizar preço ao selecionar serviço
         const serviceSelect = document.getElementById('mpesa-service');
         const priceDisplay = document.getElementById('mpesa-price');
+        const downloadBtn = document.getElementById('download-btn');
+        const ebookHint = document.getElementById('ebook-hint');
 
         serviceSelect.addEventListener('change', function() {
             const value = this.value;
             const formattedPrice = parseInt(value).toLocaleString('pt-MZ') + ' MT';
             priceDisplay.textContent = formattedPrice;
+
+            // Esconde botão de download ao mudar de serviço
+            downloadBtn.classList.add('hidden');
         });
 
         // Botão de pagamento
@@ -2562,13 +2668,25 @@
 
                 if (response.ok && data.success !== false) {
                     showResponse(true, '✅ Sucesso!', 'Pagamento iniciado com sucesso! Confirme no seu telemóvel.');
+
+                    // Se for E-book, mostrar botão de download
+                    if (isEbook(serviceValue)) {
+                        downloadBtn.classList.remove('hidden');
+                        downloadBtn.style.display = 'inline-flex';
+                        // Scroll para o botão
+                        setTimeout(() => {
+                            downloadBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 500);
+                    }
                 } else {
                     const errorMsg = data.error || data.message || 'Erro desconhecido';
                     showResponse(false, '❌ Falha no pagamento', `Erro: ${errorMsg}`);
+                    downloadBtn.classList.add('hidden');
                 }
 
             } catch (error) {
                 showResponse(false, '❌ Erro de conexão', `Erro: ${error.message}`);
+                downloadBtn.classList.add('hidden');
             } finally {
                 payBtn.disabled = false;
                 payBtn.innerHTML = '<i class="fas fa-credit-card"></i> Pagar com M-Pesa';
