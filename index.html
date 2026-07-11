@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lis Consult & Services - Moçambique</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        /* Cores inspiradas em Moçambique - vivas e cheias de esperança */
+        /* ===== CORES ===== */
         :root {
             --verde-esperanca: #2ecc71;
             --amarelo-sol: #f1c40f;
@@ -14,9 +14,9 @@
             --azul-ceu: #3498db;
             --laranja-energia: #e67e22;
             --roxo-criatividade: #9b59b6;
-            --marrom-terra: #8B4513;
             --branco-puro: #ffffff;
             --preto-texto: #2c3e50;
+            --cinza-claro: #f5f7fa;
         }
 
         * {
@@ -37,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* Evitar scroll quando modal está aberto */
         body.modal-open {
             overflow: hidden;
         }
@@ -80,7 +79,7 @@
             box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
         }
 
-        /* Header */
+        /* ===== HEADER ===== */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -165,7 +164,7 @@
             position: relative;
         }
 
-        /* Drawer Funcional */
+        /* ===== DRAWER ===== */
         .drawer-overlay {
             display: none;
             position: fixed;
@@ -235,7 +234,7 @@
             color: var(--vermelho-paixao);
         }
 
-        /* Hero Section */
+        /* ===== HERO ===== */
         .hero {
             background: linear-gradient(135deg, var(--verde-esperanca) 0%, var(--azul-ceu) 100%);
             color: white;
@@ -299,7 +298,367 @@
             padding: 12px 25px;
         }
 
-        /* About Section */
+        /* ===== SEÇÃO DE PAGAMENTO ===== */
+        .payment-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .payment-section .section-title {
+            color: var(--preto-texto);
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .payment-card {
+            background: var(--cinza-claro);
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .payment-card .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .payment-card .card-badge.mpesa {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .payment-card .card-badge.emola {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .payment-card .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payment-card .card-icon .icon-mpesa {
+            color: #e74c3c;
+        }
+
+        .payment-card .card-icon .icon-emola {
+            color: #2ecc71;
+        }
+
+        .payment-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .payment-card p {
+            color: #4a5568;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        /* Seleção de Serviço com Preços */
+        .service-selector {
+            margin: 16px 0;
+        }
+
+        .service-selector label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+
+        .service-selector select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px;
+            background: white;
+            color: #2d3748;
+            cursor: pointer;
+            transition: 0.2s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        .service-selector select:focus {
+            border-color: var(--azul-ceu);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+            outline: none;
+        }
+
+        .service-selector select option {
+            padding: 8px;
+        }
+
+        .service-price-display {
+            margin-top: 8px;
+            padding: 10px 14px;
+            background: #ebf8ff;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #2c5282;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-price-display .price-value {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--vermelho-paixao);
+        }
+
+        .payment-card .phone-hint {
+            font-size: 12px;
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        .payment-card .phone-hint i {
+            margin-right: 4px;
+        }
+
+        .payment-card .phone-input-group {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.2s;
+            margin-top: 8px;
+        }
+
+        .payment-card .phone-input-group:focus-within {
+            border-color: var(--azul-ceu);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+        }
+
+        .payment-card .phone-input-group .prefix {
+            background: #edf2f7;
+            padding: 12px 14px;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 14px;
+            border-right: 2px solid #e2e8f0;
+        }
+
+        .payment-card .phone-input-group input {
+            flex: 1;
+            padding: 12px 14px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            outline: none;
+            font-weight: 500;
+            min-width: 0;
+        }
+
+        .payment-card .phone-input-group input::placeholder {
+            color: #a0aec0;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .payment-card .amount-group {
+            margin-top: 16px;
+        }
+
+        .payment-card .amount-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+
+        .payment-card .amount-group .amount-input-wrapper {
+            position: relative;
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .payment-card .amount-group .amount-input-wrapper input {
+            width: 100%;
+            padding: 12px 60px 12px 14px;
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+            outline: none;
+        }
+
+        .payment-card .amount-group .amount-input-wrapper input:disabled {
+            background: #f0fff4;
+            color: #2d3748;
+            cursor: default;
+        }
+
+        .payment-card .amount-group .amount-input-wrapper .currency-label {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .payment-card .btn-pay {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .payment-card .btn-pay:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .payment-card .btn-pay:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .payment-card .btn-pay.mpesa-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .payment-card .btn-pay.mpesa-btn:hover:not(:disabled) {
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .payment-card .btn-pay.emola-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .payment-card .btn-pay.emola-btn:hover:not(:disabled) {
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+        }
+
+        .payment-card .spinner-small {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .payment-response {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            display: none;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .payment-response.show {
+            display: block;
+        }
+
+        .payment-response.success {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            color: #276749;
+        }
+
+        .payment-response.error {
+            background: #fff5f5;
+            border: 2px solid #fc8181;
+            color: #9b2c2c;
+        }
+
+        .payment-response .response-title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .payment-response .response-body {
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .payment-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .payment-card {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .payment-card .phone-input-group {
+                flex-wrap: wrap;
+            }
+
+            .payment-card .phone-input-group .prefix {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #e2e8f0;
+                text-align: center;
+            }
+        }
+
+        /* ===== ABOUT ===== */
         .about {
             background-color: white;
             padding: 80px 0;
@@ -368,7 +727,7 @@
             transform: translateY(-10px);
         }
 
-        /* Team Section - NOVA SEÇÃO */
+        /* ===== TEAM ===== */
         .team {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 80px 0;
@@ -443,7 +802,7 @@
             color: var(--amarelo-sol);
         }
 
-        /* Services Section - COMPLETO */
+        /* ===== SERVICES ===== */
         .services {
             background-color: #f8f9fa;
             padding: 80px 0;
@@ -487,7 +846,7 @@
             font-size: 30px;
         }
 
-        /* Results Gallery Section - ATUALIZADA */
+        /* ===== RESULTS ===== */
         .results {
             background-color: white;
             padding: 80px 0;
@@ -599,7 +958,7 @@
             transform: scale(1.1);
         }
 
-        /* Nova Seção: Atenção (Panfletos) */
+        /* ===== FLYERS ===== */
         .flyers {
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             padding: 80px 0;
@@ -636,7 +995,7 @@
             display: block;
         }
 
-        /* Nova Seção: Vídeos de Graduação e Depoimentos */
+        /* ===== VIDEOS ===== */
         .graduation-videos {
             background: linear-gradient(135deg, var(--laranja-energia) 0%, var(--vermelho-paixao) 100%);
             color: white;
@@ -727,7 +1086,6 @@
             font-size: 0.9rem;
         }
 
-        /* Testimonial Video Card - DESTAQUE PARA O DEPOIMENTO */
         .testimonial-card {
             background: linear-gradient(135deg, var(--azul-ceu) 0%, var(--roxo-criatividade) 100%);
             border: 3px solid var(--amarelo-sol);
@@ -755,7 +1113,7 @@
             margin-right: 5px;
         }
 
-        /* Values Section */
+        /* ===== VALUES ===== */
         .values {
             background-color: white;
             padding: 80px 0;
@@ -808,7 +1166,7 @@
             font-size: 1.1rem;
         }
 
-        /* Contact Section */
+        /* ===== CONTACT ===== */
         .contact {
             background: linear-gradient(135deg, var(--azul-ceu) 0%, var(--roxo-criatividade) 100%);
             color: white;
@@ -872,7 +1230,7 @@
             background: rgba(255,255,255,0.9);
         }
 
-        /* WhatsApp Bubble */
+        /* ===== WHATSAPP BUBBLE ===== */
         .whatsapp-bubble {
             position: fixed;
             bottom: 25px;
@@ -899,7 +1257,7 @@
             font-size: 30px;
         }
 
-        /* Modal de Visualização de Imagens em Tela Cheia */
+        /* ===== IMAGE MODAL ===== */
         .image-modal {
             display: none;
             position: fixed;
@@ -1014,7 +1372,7 @@
             border-radius: 20px;
         }
 
-        /* Modal de Inscrição COM SCROLL FUNCIONAL */
+        /* ===== SUBSCRIBE MODAL ===== */
         .modal {
             display: none;
             position: fixed;
@@ -1105,7 +1463,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Scrollbar personalizada funcional */
         .service-options-container::-webkit-scrollbar {
             width: 8px;
         }
@@ -1194,7 +1551,7 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--preto-texto);
             color: white;
@@ -1227,7 +1584,6 @@
             font-size: 14px;
         }
 
-        /* Loading Spinner */
         .loading {
             display: none;
             text-align: center;
@@ -1244,241 +1600,83 @@
             margin: 0 auto 15px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 2.4rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+            .hero-title { font-size: 2.4rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
         }
 
         @media (max-width: 768px) {
-            .header-container {
-                padding: 12px 15px;
-            }
-            
-            .logo-img {
-                height: 40px;
-            }
-            
-            .logo-text {
-                font-size: 20px;
-            }
-            
-            nav ul {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
+            .header-container { padding: 12px 15px; }
+            .logo-img { height: 40px; }
+            .logo-text { font-size: 20px; }
+            nav ul { display: none; }
+            .mobile-menu { display: block; }
 
             .hero {
                 padding: 120px 20px 60px;
                 min-height: 400px;
             }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                gap: 15px;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .hero-buttons { gap: 15px; }
+            .btn { padding: 10px 20px; font-size: 14px; }
 
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 40px;
-            }
-            
-            section {
-                padding: 50px 0;
-            }
-            
-            .about, .services, .team, .values, .contact {
-                padding: 60px 0;
-            }
+            .section-title { font-size: 1.8rem; margin-bottom: 40px; }
+            section { padding: 50px 0; }
+            .about, .services, .team, .values, .contact, .payment-section { padding: 60px 0; }
 
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 25px;
-            }
+            .footer-content { flex-direction: column; text-align: center; gap: 25px; }
 
-            .modal-content {
-                padding: 30px 20px;
-                max-width: 95%;
-                max-height: 90vh;
-            }
+            .modal-content { padding: 30px 20px; max-width: 95%; max-height: 90vh; }
+            .modal-title { font-size: 22px; }
+            .service-option { padding: 12px 10px; }
+            .service-options-container { max-height: 250px; }
 
-            .modal-title {
-                font-size: 22px;
-            }
-            
-            .service-option {
-                padding: 12px 10px;
-            }
+            .services-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .gallery-item { width: 250px; height: 350px; }
+            .videos-container { grid-template-columns: 1fr; }
+            .video-wrapper { height: 200px; }
 
-            .service-options-container {
-                max-height: 250px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-            
-            .gallery-item {
-                width: 250px;
-                height: 350px;
-            }
-
-            .videos-container {
-                grid-template-columns: 1fr;
-            }
-
-            .video-wrapper {
-                height: 200px;
-            }
-
-            .image-modal-nav-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .image-modal-close {
-                top: -30px;
-                font-size: 24px;
-                width: 35px;
-                height: 35px;
-            }
-
-            .flyers-gallery .gallery-item {
-                max-width: 90%;
-            }
+            .image-modal-nav-btn { width: 40px; height: 40px; font-size: 18px; }
+            .image-modal-close { top: -30px; font-size: 24px; width: 35px; height: 35px; }
+            .flyers-gallery .gallery-item { max-width: 90%; }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 100px 15px 50px;
-                min-height: 350px;
-            }
-            
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
+            .hero { padding: 100px 15px 50px; min-height: 350px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 250px; }
 
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .mission-vision {
-                grid-template-columns: 1fr;
-            }
-            
-            .service-option {
-                flex-direction: column;
-                text-align: center;
-                gap: 8px;
-            }
+            .section-title { font-size: 1.6rem; }
+            .mission-vision { grid-template-columns: 1fr; }
+            .service-option { flex-direction: column; text-align: center; gap: 8px; }
+            .service-option i { font-size: 20px; }
 
-            .service-option i {
-                font-size: 20px;
-            }
-            
-            .whatsapp-bubble {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-            
-            .whatsapp-bubble i {
-                font-size: 25px;
-            }
+            .whatsapp-bubble { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .whatsapp-bubble i { font-size: 25px; }
 
-            .drawer {
-                width: 85%;
-                right: -85%;
-            }
+            .drawer { width: 85%; right: -85%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-item { width: 220px; height: 320px; }
+            .video-wrapper { height: 180px; }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-item {
-                width: 220px;
-                height: 320px;
-            }
-
-            .video-wrapper {
-                height: 180px;
-            }
-
-            .image-modal-nav-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-                padding: 0;
-            }
-
-            .image-modal-close {
-                top: -25px;
-                font-size: 20px;
-                width: 30px;
-                height: 30px;
-            }
-
-            .image-modal-counter {
-                top: -35px;
-                font-size: 14px;
-                padding: 3px 10px;
-            }
+            .image-modal-nav-btn { width: 35px; height: 35px; font-size: 16px; padding: 0; }
+            .image-modal-close { top: -25px; font-size: 20px; width: 30px; height: 30px; }
+            .image-modal-counter { top: -35px; font-size: 14px; padding: 3px 10px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <div class="header-container">
                 <div class="logo">
-                    <img src="https://i.postimg.cc/C51jVWV9/20251102-190424.png" alt="Lis Consult & Services" class="logo-img">
+                    <img src="https://i.postimg.cc/C51jVWV9/20251102-190424.png" alt="Lis Consult & Services" class="logo-img" />
                     <div class="logo-text">A Cura <span>Académica</span></div>
                 </div>
                 <nav>
@@ -1487,8 +1685,9 @@
                         <li><a href="#about">Sobre</a></li>
                         <li><a href="#team">Equipa</a></li>
                         <li><a href="#services">Serviços</a></li>
+                        <li><a href="#payment">Pagamento</a></li>
                         <li><a href="#results">Resultados</a></li>
-                        <li><a href="#atencao">Atenção</a></li> <!-- NOVO LINK -->
+                        <li><a href="#atencao">Atenção</a></li>
                         <li><a href="#graduation">Depoimentos</a></li>
                         <li><a href="#values">Valores</a></li>
                         <li><a href="#contact">Contacto</a></li>
@@ -1501,7 +1700,7 @@
         </div>
     </header>
 
-    <!-- Drawer Funcional -->
+    <!-- ===== DRAWER ===== -->
     <div class="drawer-overlay" id="drawer-overlay"></div>
     <div class="drawer" id="drawer">
         <span class="drawer-close" id="drawer-close"><i class="fas fa-times"></i></span>
@@ -1511,8 +1710,9 @@
                 <li><a href="#about" class="drawer-link">Sobre</a></li>
                 <li><a href="#team" class="drawer-link">Equipa</a></li>
                 <li><a href="#services" class="drawer-link">Serviços</a></li>
+                <li><a href="#payment" class="drawer-link">Pagamento</a></li>
                 <li><a href="#results" class="drawer-link">Resultados</a></li>
-                <li><a href="#atencao" class="drawer-link">Atenção</a></li> <!-- NOVO LINK -->
+                <li><a href="#atencao" class="drawer-link">Atenção</a></li>
                 <li><a href="#graduation" class="drawer-link">Depoimentos</a></li>
                 <li><a href="#values" class="drawer-link">Valores</a></li>
                 <li><a href="#contact" class="drawer-link">Contacto</a></li>
@@ -1520,7 +1720,7 @@
         </nav>
     </div>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -1534,14 +1734,14 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
         <div class="container">
             <h2 class="section-title">Historial da Empresa</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>A Lis Consult & Services, E.I é uma empresa do ramo académico com 13 anos de experiência de mercado. A ideia da criação da empresa surge associada às actividades de assessoria aos estudantes desde finais 2012, intervindo em acções de explicação e palestras, para incentivar cada vez mais estudantes a criar e tornar reais o seu sucesso académico e realização de sonhos.</p>
-                    
+
                     <div class="mission-vision">
                         <div class="mission-card">
                             <h3><i class="fas fa-bullseye"></i> Objectivo</h3>
@@ -1557,13 +1757,13 @@
         </div>
     </section>
 
-    <!-- Team Section - NOVA SEÇÃO COM O DIRECTOR -->
+    <!-- ===== TEAM ===== -->
     <section class="team" id="team">
         <div class="container">
             <h2 class="section-title">Nossa Equipa de Trabalho</h2>
             <div class="team-card">
                 <div class="team-image">
-                    <img src="https://i.postimg.cc/KvDtQJcY/WA-1773512857695.jpg" alt="Lisdálio Rupava">
+                    <img src="https://i.postimg.cc/KvDtQJcY/WA-1773512857695.jpg" alt="Lisdálio Rupava" />
                 </div>
                 <h3 class="team-name">Lisdálio Rupava</h3>
                 <p class="team-title">Director Geral</p>
@@ -1577,78 +1777,58 @@
         </div>
     </section>
 
-    <!-- Services Section COMPLETA -->
+    <!-- ===== SERVICES ===== -->
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-file-alt"></i></div>
                     <h3>Relatórios de Estágio</h3>
                     <p>Elaboração completa de relatórios de estágio profissional</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-book"></i></div>
                     <h3>Monografias</h3>
                     <p>Desenvolvimento de monografias académicas de qualidade</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Exame de Estado</h3>
                     <p>Preparação e apoio para exames de estado</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
                     <h3>Dissertação de Mestrado</h3>
                     <p>Orientação e elaboração de dissertações de mestrado</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Planos de Negócios</h3>
                     <p>Elaboração de planos de negócios estratégicos</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-book-open"></i></div>
                     <h3>Encadernação Capa Dura</h3>
                     <p>Serviços de encadernação profissional em capa dura</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h3>Consultoria Académica</h3>
                     <p>Orientação personalizada para projectos académicos</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-spell-check"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-spell-check"></i></div>
                     <h3>Revisão de Textos</h3>
                     <p>Revisão gramatical e ortográfica de documentos</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-powerpoint"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-file-powerpoint"></i></div>
                     <h3>Apresentações</h3>
                     <p>Criação de apresentações profissionais e académicas</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Pesquisa Científica</h3>
                     <p>Apoio em metodologia e pesquisa científica</p>
                 </div>
@@ -1656,224 +1836,248 @@
         </div>
     </section>
 
-    <!-- Results Gallery Section - ATUALIZADA -->
-    <section class="results" id="results">
+    <!-- ===== PAYMENT SECTION ===== -->
+    <section class="payment-section" id="payment">
         <div class="container">
-            <h2 class="section-title">Resultados Satisfatórios</h2>
-            <p>Conheça alguns dos nossos clientes que alcançaram o sucesso académico com a ajuda da Lis Consult</p>
-            
-            <div class="results-gallery">
-                <div class="gallery-container" id="gallery-container">
-                    <div class="gallery-item" data-index="0">
-                        <img src="https://i.postimg.cc/x8RjJSdy/1762178441102.jpg" alt="Resultado 1 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
+            <h2 class="section-title">Pagamento de Serviços</h2>
+            <p style="text-align:center; max-width:600px; margin:0 auto 40px; color:#4a5568;">
+                Selecione o serviço que deseja pagar e escolha o método de pagamento.
+            </p>
+
+            <div class="payment-grid">
+                <!-- ===== CARTÃO M-PESA ===== -->
+                <div class="payment-card" id="mpesa-card">
+                    <span class="card-badge mpesa">M-Pesa</span>
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt icon-mpesa"></i>
+                        <span style="font-size:18px; font-weight:600;">M-Pesa</span>
+                    </div>
+                    <h3>Pagar com M-Pesa</h3>
+                    <p>Receba uma notificação USSD no seu telemóvel para confirmar o pagamento.</p>
+
+                    <!-- Seleção de Serviço -->
+                    <div class="service-selector">
+                        <label for="mpesa-service"><i class="fas fa-list"></i> Selecione o serviço</label>
+                        <select id="mpesa-service" class="service-select">
+                            <option value="3000">Projecto - 3.000 MT</option>
+                            <option value="15000">Monografia - 15.000 MT</option>
+                            <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
+                        </select>
+                        <div class="service-price-display">
+                            <span>💰 Valor a pagar:</span>
+                            <span class="price-value" id="mpesa-price">3.000 MT</span>
                         </div>
                     </div>
-                    <div class="gallery-item" data-index="1">
-                        <img src="https://i.postimg.cc/j5ySTf0L/1762178438800.jpg" alt="Resultado 2 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
-                        </div>
+
+                    <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258</div>
+                    <div class="phone-input-group">
+                        <span class="prefix">+258</span>
+                        <input type="tel" class="phone-input" placeholder="84 123 4567" value="841234567" />
                     </div>
-                    <div class="gallery-item" data-index="2">
-                        <img src="https://i.postimg.cc/HkLnMjXm/1762178436245.jpg" alt="Resultado 3 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
-                        </div>
+
+                    <button class="btn-pay mpesa-btn" data-method="mpesa">
+                        <i class="fas fa-credit-card"></i> Pagar com M-Pesa
+                    </button>
+
+                    <div class="payment-response" data-response="mpesa">
+                        <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
+                        <div class="response-body"></div>
                     </div>
-                    <div class="gallery-item" data-index="3">
-                        <img src="https://i.postimg.cc/JnpdG6L1/1762178443615.jpg" alt="Resultado 4 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-index="4">
-                        <img src="https://i.postimg.cc/hvHsdN3j/1762178446612.jpg" alt="Resultado 5 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></div>
-                    </div>
-                    <div class="gallery-item" data-index="5">
-                        <img src="https://i.postimg.cc/Pq3RqVHF/1762178471485.jpg" alt="Resultado 6 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-index="6">
-                        <img src="https://i.postimg.cc/FzMj0rbt/b547399dc8114ca4a70b62409ff66371.jpg" alt="Resultado 7 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Acadêmico</h4>
-                            <p></p>
-                        </div>
-                    </div>
-                    <!-- NOVAS IMAGENS ADICIONADAS -->
-                    <div class="gallery-item" data-index="7">
-                        <img src="https://i.postimg.cc/rsJwJBDT/IMG-20251205-WA0023.jpg" alt="Resultado 8 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Sucesso Académico</h4>
-                            <p></p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-index="8">
-                        <img src="https://i.postimg.cc/9fRzhgnb/IMG-20251205-WA0025.jpg" alt="Resultado 9 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Conquista Profissional</h4>
-                            <p>Mestrado concluído com excelência - UEM</p>
-                        </div>
-                    </div>
-                     <div class="gallery-item" data-index="9">
-                        <img src="https://i.postimg.cc/JznrbwGq/IMG-20260310-WA0110.jpg" alt="Resultado 9 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Conquista Profissional</h4>
-                            <p>Resultados Satisfatórios</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-index="10">
-                        <img src="https://i.postimg.cc/kXHWZ7vs/IMG-20260619-WA0035.jpg" alt="Resultado 9 - Cliente satisfeito">
-                        <div class="gallery-caption">
-                            <h4>Você consegue</h4>
-                            <p>Resultados Satisfatórios</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" data-index="11">
-    <img src="https://i.postimg.cc/s27P7b7r/IMG-20260619-WA0034.jpg" alt="Resultado 9 - Cliente satisfeito">
-    <div class="gallery-caption">
-        <h4>Você merce também</h4>
-        <p>Resultados Satisfatórios</p>
-    </div>
-</div>
                 </div>
-                
-                <div class="gallery-nav">
-                    <button class="gallery-nav-btn" id="prev-btn">
-                        <i class="fas fa-chevron-left"></i>
+
+                <!-- ===== CARTÃO E-MOLA ===== -->
+                <div class="payment-card" id="emola-card">
+                    <span class="card-badge emola">e-Mola</span>
+                    <div class="card-icon">
+                        <i class="fas fa-wallet icon-emola"></i>
+                        <span style="font-size:18px; font-weight:600;">e-Mola</span>
+                    </div>
+                    <h3>Pagar com e-Mola</h3>
+                    <p>Receba uma notificação USSD no seu telemóvel para confirmar o pagamento.</p>
+
+                    <!-- Seleção de Serviço -->
+                    <div class="service-selector">
+                        <label for="emola-service"><i class="fas fa-list"></i> Selecione o serviço</label>
+                        <select id="emola-service" class="service-select">
+                            <option value="3000">Projecto - 3.000 MT</option>
+                            <option value="15000">Monografia - 15.000 MT</option>
+                            <option value="40000">Dissertação de Mestrado - 40.000 MT</option>
+                        </select>
+                        <div class="service-price-display">
+                            <span>💰 Valor a pagar:</span>
+                            <span class="price-value" id="emola-price">3.000 MT</span>
+                        </div>
+                    </div>
+
+                    <div class="phone-hint"><i class="fas fa-info-circle"></i> Digite o número sem o +258</div>
+                    <div class="phone-input-group">
+                        <span class="prefix">+258</span>
+                        <input type="tel" class="phone-input" placeholder="86 123 4567" value="861234567" />
+                    </div>
+
+                    <button class="btn-pay emola-btn" data-method="emola">
+                        <i class="fas fa-credit-card"></i> Pagar com e-Mola
                     </button>
-                    <button class="gallery-nav-btn" id="next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+
+                    <div class="payment-response" data-response="emola">
+                        <div class="response-title"><span class="response-icon">✅</span> <span class="response-title-text"></span></div>
+                        <div class="response-body"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: ATENÇÃO (PANFLETOS) -->
+    <!-- ===== RESULTS ===== -->
+    <section class="results" id="results">
+        <div class="container">
+            <h2 class="section-title">Resultados Satisfatórios</h2>
+            <p>Conheça alguns dos nossos clientes que alcançaram o sucesso académico com a ajuda da Lis Consult</p>
+
+            <div class="results-gallery">
+                <div class="gallery-container" id="gallery-container">
+                    <div class="gallery-item" data-index="0">
+                        <img src="https://i.postimg.cc/x8RjJSdy/1762178441102.jpg" alt="Resultado 1" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="1">
+                        <img src="https://i.postimg.cc/j5ySTf0L/1762178438800.jpg" alt="Resultado 2" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="2">
+                        <img src="https://i.postimg.cc/HkLnMjXm/1762178436245.jpg" alt="Resultado 3" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="3">
+                        <img src="https://i.postimg.cc/JnpdG6L1/1762178443615.jpg" alt="Resultado 4" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="4">
+                        <img src="https://i.postimg.cc/hvHsdN3j/1762178446612.jpg" alt="Resultado 5" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="5">
+                        <img src="https://i.postimg.cc/Pq3RqVHF/1762178471485.jpg" alt="Resultado 6" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="6">
+                        <img src="https://i.postimg.cc/FzMj0rbt/b547399dc8114ca4a70b62409ff66371.jpg" alt="Resultado 7" />
+                        <div class="gallery-caption"><h4>Sucesso Acadêmico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="7">
+                        <img src="https://i.postimg.cc/rsJwJBDT/IMG-20251205-WA0023.jpg" alt="Resultado 8" />
+                        <div class="gallery-caption"><h4>Sucesso Académico</h4><p></p></div>
+                    </div>
+                    <div class="gallery-item" data-index="8">
+                        <img src="https://i.postimg.cc/9fRzhgnb/IMG-20251205-WA0025.jpg" alt="Resultado 9" />
+                        <div class="gallery-caption"><h4>Conquista Profissional</h4><p>Mestrado concluído com excelência - UEM</p></div>
+                    </div>
+                    <div class="gallery-item" data-index="9">
+                        <img src="https://i.postimg.cc/JznrbwGq/IMG-20260310-WA0110.jpg" alt="Resultado 10" />
+                        <div class="gallery-caption"><h4>Conquista Profissional</h4><p>Resultados Satisfatórios</p></div>
+                    </div>
+                    <div class="gallery-item" data-index="10">
+                        <img src="https://i.postimg.cc/kXHWZ7vs/IMG-20260619-WA0035.jpg" alt="Resultado 11" />
+                        <div class="gallery-caption"><h4>Você consegue</h4><p>Resultados Satisfatórios</p></div>
+                    </div>
+                    <div class="gallery-item" data-index="11">
+                        <img src="https://i.postimg.cc/s27P7b7r/IMG-20260619-WA0034.jpg" alt="Resultado 12" />
+                        <div class="gallery-caption"><h4>Você merece também</h4><p>Resultados Satisfatórios</p></div>
+                    </div>
+                </div>
+
+                <div class="gallery-nav">
+                    <button class="gallery-nav-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-nav-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLYERS ===== -->
     <section class="flyers" id="atencao">
         <div class="container">
             <h2 class="section-title">Atenção</h2>
             <p>Confira nossos panfletos informativos</p>
             <div class="flyers-gallery">
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/nzhzcdr6/20260319-211351.jpg" alt="Panfleto 1">
-                    <div class="gallery-caption">
-                        <h4>Panfleto Informativo</h4>
-                        <p>Informações importantes sobre nossos serviços</p>
-                    </div>
+                    <img src="https://i.postimg.cc/nzhzcdr6/20260319-211351.jpg" alt="Panfleto 1" />
+                    <div class="gallery-caption"><h4>Panfleto Informativo</h4><p>Informações importantes sobre nossos serviços</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/HWJMwxW6/9b6898cbf33e409aa5e2b5b9c9568e63(1).jpg" alt="Panfleto 2">
-                    <div class="gallery-caption">
-                        <h4>Panfleto de Divulgação</h4>
-                        <p>Promoções e novidades</p>
-                    </div>
+                    <img src="https://i.postimg.cc/HWJMwxW6/9b6898cbf33e409aa5e2b5b9c9568e63(1).jpg" alt="Panfleto 2" />
+                    <div class="gallery-caption"><h4>Panfleto de Divulgação</h4><p>Promoções e novidades</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal de Visualização de Imagens em Tela Cheia -->
+    <!-- ===== IMAGE MODAL ===== -->
     <div class="image-modal" id="image-modal">
         <div class="image-modal-content">
             <span class="image-modal-close" id="image-modal-close">&times;</span>
             <div class="image-modal-counter">
-                <span id="current-image-index">1</span> / <span id="total-images">9</span>
+                <span id="current-image-index">1</span> / <span id="total-images">12</span>
             </div>
-            <img class="image-modal-img" id="image-modal-img" src="" alt="">
+            <img class="image-modal-img" id="image-modal-img" src="" alt="" />
             <div class="image-modal-caption" id="image-modal-caption"></div>
             <div class="image-modal-nav">
-                <button class="image-modal-nav-btn" id="image-modal-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="image-modal-nav-btn" id="image-modal-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <button class="image-modal-nav-btn" id="image-modal-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="image-modal-nav-btn" id="image-modal-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </div>
 
-    <!-- Nova Seção: Vídeos de Graduação e Depoimentos -->
+    <!-- ===== VIDEOS ===== -->
     <section class="graduation-videos" id="graduation">
         <div class="container">
             <h2 class="section-title">Depoimentos e Momentos de Vitória</h2>
             <p>Veja o que nossos clientes dizem sobre a Lis Consult & Services</p>
-            
+
             <div class="videos-container">
-                <!-- NOVO VÍDEO DE DEPOIMENTO ADICIONADO -->
                 <div class="video-card testimonial-card">
-                    <div class="testimonial-badge">
-                        <i class="fas fa-star"></i> Depoimento
-                    </div>
+                    <div class="testimonial-badge"><i class="fas fa-star"></i> Depoimento</div>
                     <div class="video-wrapper">
                         <video poster="https://i.postimg.cc/BvmyGY78/WA-1773499294155.jpg" controls>
-                            <source src="https://raw.githubusercontent.com/afonsojr258-debug/List-Consult-1/main/lv_0_20260314163546.mp4?raw=true" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
+                            <source src="https://raw.githubusercontent.com/afonsojr258-debug/List-Consult-1/main/lv_0_20260314163546.mp4?raw=true" type="video/mp4" />
                         </video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <div class="video-play-btn"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="video-caption">
                         <h4>Depoimento de Cliente</h4>
                         <p>"A Lis Consult mudou minha vida académica! Recomendo a todos."</p>
                     </div>
                 </div>
-                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video poster="https://i.postimg.cc/J0Dg6rsh/Screenshot-20251107-213618.jpg" controls>
-                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251104-WA0075.mp4?raw=true" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
+                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251104-WA0075.mp4?raw=true" type="video/mp4" />
                         </video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <div class="video-play-btn"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="video-caption">
                         <h4>Graduação em Direito</h4>
                         <p>Celebração do sucesso académico após conclusão da monografia</p>
                     </div>
                 </div>
-                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video poster="https://i.postimg.cc/cHMMdPPv/Screenshot-20251107-213523.jpg13" controls>
-                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251107-WA0070.mp4?raw=true" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
+                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251107-WA0070.mp4?raw=true" type="video/mp4" />
                         </video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <div class="video-play-btn"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="video-caption">
                         <h4>Cerimónia de Colação de Grau</h4>
                         <p>Momento especial de formatura com família e amigos</p>
                     </div>
                 </div>
-                
                 <div class="video-card">
                     <div class="video-wrapper">
                         <video poster="https://i.postimg.cc/fTspjNMr/Screenshot-20251107-213540.jpg" controls>
-                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251107-WA0071.mp4?raw=true" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo.
+                            <source src="https://github.com/GeraldoHack/Video/blob/main/VID-20251107-WA0071.mp4?raw=true" type="video/mp4" />
                         </video>
-                        <div class="video-play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
+                        <div class="video-play-btn"><i class="fas fa-play"></i></div>
                     </div>
                     <div class="video-caption">
                         <h4>Conquista do Mestrado</h4>
@@ -1884,7 +2088,7 @@
         </div>
     </section>
 
-    <!-- Values Section -->
+    <!-- ===== VALUES ===== -->
     <section class="values" id="values">
         <div class="container">
             <h2 class="section-title">Nossos Valores e Padrões</h2>
@@ -1916,7 +2120,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT ===== -->
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Contacte-nos</h2>
@@ -1934,15 +2138,15 @@
                     <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required />
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required />
                         </div>
                         <div class="form-group">
                             <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" />
                         </div>
                         <div class="form-group">
                             <label for="service">Serviço de Interesse</label>
@@ -1977,22 +2181,20 @@
         </div>
     </section>
 
-    <!-- WhatsApp Bubble -->
+    <!-- ===== WHATSAPP BUBBLE ===== -->
     <div class="whatsapp-bubble" id="whatsapp-bubble">
         <i class="fab fa-whatsapp"></i>
     </div>
 
-    <!-- Modal de Inscrição COM SCROLL FUNCIONAL -->
+    <!-- ===== SUBSCRIBE MODAL ===== -->
     <div class="modal" id="subscribe-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-inner">
-                <div class="modal-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
+                <div class="modal-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h2 class="modal-title">Inicie Sua Jornada Académica</h2>
                 <p class="modal-subtitle">Selecione o serviço que transformará o seu futuro</p>
-                
+
                 <div class="service-options-container">
                     <div class="service-options">
                         <div class="service-option" data-service="Relatórios de Estágio">
@@ -2067,7 +2269,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="confirm-btn" id="confirm-subscription">
                     <i class="fas fa-rocket"></i> Começar Minha Jornada
                 </button>
@@ -2075,7 +2277,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2090,7 +2292,9 @@
     </footer>
 
     <script>
-        // Drawer Funcional
+        // ================================================================
+        // DRAWER
+        // ================================================================
         const mobileMenu = document.getElementById('mobile-menu');
         const drawer = document.getElementById('drawer');
         const drawerOverlay = document.getElementById('drawer-overlay');
@@ -2115,31 +2319,27 @@
             document.body.style.overflow = '';
         });
 
-        // Fechar drawer ao clicar nos links
         drawerLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                
                 drawer.classList.remove('active');
                 drawerOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             });
         });
 
-        // Smooth Scrolling for Navigation Links
+        // Smooth Scroll
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
@@ -2147,30 +2347,30 @@
             });
         });
 
-        // WhatsApp Bubble
+        // ================================================================
+        // WHATSAPP
+        // ================================================================
         document.getElementById('whatsapp-bubble').addEventListener('click', function() {
             const phoneNumber = "258849532982";
             const message = "Olá! Gostaria de obter mais informações sobre os serviços da Lis Consult.";
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         });
 
-        // Modal de Inscrição COM SCROLL FUNCIONAL
+        // ================================================================
+        // SUBSCRIBE MODAL
+        // ================================================================
         const subscribeBtn = document.getElementById('subscribe-btn');
         const modal = document.getElementById('subscribe-modal');
         const closeModal = document.querySelector('.close-modal');
         const serviceOptions = document.querySelectorAll('.service-option');
         const confirmBtn = document.getElementById('confirm-subscription');
-
         let selectedService = '';
 
         subscribeBtn.addEventListener('click', function() {
             modal.style.display = 'flex';
             document.body.classList.add('modal-open');
             selectedService = '';
-            serviceOptions.forEach(option => {
-                option.classList.remove('selected');
-            });
+            serviceOptions.forEach(opt => opt.classList.remove('selected'));
         });
 
         closeModal.addEventListener('click', function() {
@@ -2188,32 +2388,23 @@
         serviceOptions.forEach(option => {
             option.addEventListener('click', function() {
                 selectedService = this.getAttribute('data-service');
-                serviceOptions.forEach(opt => {
-                    opt.classList.remove('selected');
-                });
+                serviceOptions.forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
             });
-        });
-
-        // Prevenir que o modal feche quando se clica dentro do conteúdo
-        modal.addEventListener('click', function(e) {
-            e.stopPropagation();
         });
 
         confirmBtn.addEventListener('click', function() {
             if (selectedService) {
                 const phoneNumber = "258849532982";
                 const message = `Olá! Gostaria de me inscrever para o serviço: ${selectedService}. Pode me fornecer mais informações?`;
-                const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                window.open(url, '_blank');
+                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
                 modal.style.display = 'none';
                 document.body.classList.remove('modal-open');
-                
-                // Efeito de confirmação
+
                 this.innerHTML = '<i class="fas fa-check"></i> Inscrição Confirmada!';
                 this.style.background = 'linear-gradient(135deg, var(--verde-esperanca), var(--azul-ceu))';
                 this.style.color = 'white';
-                
+
                 setTimeout(() => {
                     modal.style.display = 'none';
                     document.body.classList.remove('modal-open');
@@ -2222,11 +2413,10 @@
                     this.style.color = 'var(--preto-texto)';
                 }, 2000);
             } else {
-                // Efeito de alerta
                 this.innerHTML = 'Selecione um serviço primeiro!';
                 this.style.background = 'linear-gradient(135deg, #e74c3c, #c0392b)';
                 this.style.color = 'white';
-                
+
                 setTimeout(() => {
                     this.innerHTML = '<i class="fas fa-rocket"></i> Começar Minha Jornada';
                     this.style.background = 'linear-gradient(135deg, var(--amarelo-sol), var(--laranja-energia))';
@@ -2235,70 +2425,54 @@
             }
         });
 
-        // Form Submission para Email
+        // ================================================================
+        // CONTACT FORM
+        // ================================================================
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const submitBtn = document.getElementById('submit-btn');
             const loading = document.getElementById('form-loading');
-            const formData = new FormData(this);
-            
-            // Mostrar loading
+
             submitBtn.style.display = 'none';
             loading.style.display = 'block';
-            
-            // Simular envio (em produção, substituir por fetch/axios)
+
             setTimeout(() => {
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const service = document.getElementById('service').value;
                 const message = document.getElementById('message').value;
-                
-                // Criar link de email
+
                 const subject = `Novo contacto - ${service}`;
                 const body = `Nome: ${name}%0D%0AEmail: ${email}%0D%0ATelefone: ${phone}%0D%0AServiço: ${service}%0D%0A%0D%0AMensagem:%0D%0A${message}`;
-                
-                const mailtoLink = `mailto:lisdalio.rupava@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-                
-                // Abrir cliente de email
-                window.location.href = mailtoLink;
-                
-                // Resetar form
+                window.location.href = `mailto:lisdalio.rupava@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
                 this.reset();
-                
-                // Esconder loading e mostrar botão
                 loading.style.display = 'none';
                 submitBtn.style.display = 'block';
-                
-                // Mensagem de sucesso
                 alert('Obrigado! O seu cliente de email foi aberto com a mensagem preenchida. Por favor, envie o email para completar o processo.');
-                
             }, 1500);
         });
 
-        // Galeria de Resultados - Scroll Horizontal
+        // ================================================================
+        // GALLERY
+        // ================================================================
         const galleryContainer = document.getElementById('gallery-container');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
-        
-        // Navegação da galeria
+
         prevBtn.addEventListener('click', function() {
-            galleryContainer.scrollBy({
-                left: -320,
-                behavior: 'smooth'
-            });
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            galleryContainer.scrollBy({
-                left: 320,
-                behavior: 'smooth'
-            });
+            galleryContainer.scrollBy({ left: -320, behavior: 'smooth' });
         });
 
-        // Modal de Visualização de Imagens em Tela Cheia
-        const imageModal = document.getElementById('image-modal');
+        nextBtn.addEventListener('click', function() {
+            galleryContainer.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+
+        // ================================================================
+        // IMAGE MODAL
+        // ================================================================
+        const imageModalEl = document.getElementById('image-modal');
         const imageModalClose = document.getElementById('image-modal-close');
         const imageModalImg = document.getElementById('image-modal-img');
         const imageModalCaption = document.getElementById('image-modal-caption');
@@ -2306,51 +2480,44 @@
         const imageModalNext = document.getElementById('image-modal-next');
         const currentImageIndex = document.getElementById('current-image-index');
         const totalImages = document.getElementById('total-images');
-        
+
         const galleryItems = document.querySelectorAll('.gallery-item');
         let currentIndex = 0;
-        
-        // Configurar total de imagens
         totalImages.textContent = galleryItems.length;
-        
-        // Abrir modal ao clicar em uma imagem da galeria
+
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', function() {
                 currentIndex = index;
                 updateModalImage();
-                imageModal.classList.add('active');
+                imageModalEl.classList.add('active');
                 document.body.classList.add('modal-open');
             });
         });
-        
-        // Fechar modal
+
         imageModalClose.addEventListener('click', function() {
-            imageModal.classList.remove('active');
+            imageModalEl.classList.remove('active');
             document.body.classList.remove('modal-open');
         });
-        
-        // Fechar modal ao clicar fora da imagem
-        imageModal.addEventListener('click', function(e) {
-            if (e.target === imageModal) {
-                imageModal.classList.remove('active');
+
+        imageModalEl.addEventListener('click', function(e) {
+            if (e.target === imageModalEl) {
+                imageModalEl.classList.remove('active');
                 document.body.classList.remove('modal-open');
             }
         });
-        
-        // Navegação no modal
+
         imageModalPrev.addEventListener('click', function() {
             currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
             updateModalImage();
         });
-        
+
         imageModalNext.addEventListener('click', function() {
             currentIndex = (currentIndex + 1) % galleryItems.length;
             updateModalImage();
         });
-        
-        // Navegação com teclado
+
         document.addEventListener('keydown', function(e) {
-            if (imageModal.classList.contains('active')) {
+            if (imageModalEl.classList.contains('active')) {
                 if (e.key === 'ArrowLeft') {
                     currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
                     updateModalImage();
@@ -2358,59 +2525,220 @@
                     currentIndex = (currentIndex + 1) % galleryItems.length;
                     updateModalImage();
                 } else if (e.key === 'Escape') {
-                    imageModal.classList.remove('active');
+                    imageModalEl.classList.remove('active');
                     document.body.classList.remove('modal-open');
                 }
             }
         });
-        
-        // Função para atualizar a imagem no modal
+
         function updateModalImage() {
             const currentItem = galleryItems[currentIndex];
             const imgSrc = currentItem.querySelector('img').src;
             const caption = currentItem.querySelector('.gallery-caption');
-            
+
             imageModalImg.src = imgSrc;
             currentImageIndex.textContent = currentIndex + 1;
-            
+
             if (caption) {
-                const captionTitle = caption.querySelector('h4').textContent;
-                const captionText = caption.querySelector('p').textContent;
+                const captionTitle = caption.querySelector('h4')?.textContent || '';
+                const captionText = caption.querySelector('p')?.textContent || '';
                 imageModalCaption.innerHTML = `<h4>${captionTitle}</h4><p>${captionText}</p>`;
                 imageModalCaption.style.display = 'block';
             } else {
                 imageModalCaption.style.display = 'none';
             }
         }
-        
-        // Controlo de Vídeos
-        const videoWrappers = document.querySelectorAll('.video-wrapper');
-        
-        videoWrappers.forEach(wrapper => {
+
+        // ================================================================
+        // VIDEOS
+        // ================================================================
+        document.querySelectorAll('.video-wrapper').forEach(wrapper => {
             const video = wrapper.querySelector('video');
             const playBtn = wrapper.querySelector('.video-play-btn');
-            
-            playBtn.addEventListener('click', function() {
-                if (video.paused) {
-                    video.play();
-                    playBtn.style.display = 'none';
-                }
-            });
-            
+
+            if (playBtn) {
+                playBtn.addEventListener('click', function() {
+                    if (video.paused) {
+                        video.play();
+                        playBtn.style.display = 'none';
+                    }
+                });
+            }
+
             video.addEventListener('play', function() {
-                playBtn.style.display = 'none';
+                if (playBtn) playBtn.style.display = 'none';
             });
-            
+
             video.addEventListener('pause', function() {
-                playBtn.style.display = 'flex';
+                if (playBtn) playBtn.style.display = 'flex';
             });
-            
+
             video.addEventListener('ended', function() {
-                playBtn.style.display = 'flex';
+                if (playBtn) playBtn.style.display = 'flex';
             });
         });
-        
-        // Scroll Animation
+
+        // ================================================================
+        // PAYMENT LOGIC - COM PREÇOS FIXOS
+        // ================================================================
+
+        // ===== CONFIGURAÇÕES =====
+        const CONFIG = {
+            MERCHANT_ID: '043ee866-e219-43a3-a44e-897a640d4a1b',
+            API_KEY: 'sk_live_ym6YZPW2VCkfwg2UFL2z8qAMAPsl75H4',
+            API_URL: 'https://gyqoaningqhurhvdugne.supabase.co/functions/v1/payment-orchestrator',
+            WALLET_CODES: {
+                mpesa: '58953',
+                emola: '50806'
+            },
+            CURRENCY: 'MZN'
+        };
+
+        // ===== Mapeamento de serviços =====
+        const SERVICE_NAMES = {
+            '3000': 'Projecto',
+            '15000': 'Monografia',
+            '40000': 'Dissertação de Mestrado'
+        };
+
+        // ===== Atualizar preço ao selecionar serviço =====
+        document.querySelectorAll('.service-select').forEach(select => {
+            select.addEventListener('change', function() {
+                const value = this.value;
+                const priceDisplay = this.closest('.payment-card').querySelector('.price-value');
+                const formattedPrice = parseInt(value).toLocaleString('pt-MZ') + ' MT';
+                priceDisplay.textContent = formattedPrice;
+            });
+        });
+
+        // ===== FUNÇÃO DE PAGAMENTO =====
+        async function processPayment(method, cardElement) {
+            const select = cardElement.querySelector('.service-select');
+            const phoneInput = cardElement.querySelector('.phone-input');
+            const btn = cardElement.querySelector('.btn-pay');
+            const responseDiv = cardElement.querySelector('.payment-response');
+
+            const serviceValue = select.value;
+            const amount = parseFloat(serviceValue);
+            const serviceName = SERVICE_NAMES[serviceValue] || 'Serviço';
+            const phoneRaw = phoneInput.value.replace(/\D/g, '');
+
+            // ===== VALIDAÇÕES =====
+            if (!phoneRaw || phoneRaw.length < 9) {
+                showPaymentResponse(responseDiv, false, 'Telefone inválido',
+                    'Digite um número válido com pelo menos 9 dígitos.\nExemplo: 84 123 4567'
+                );
+                return;
+            }
+
+            // Valida prefixo conforme método
+            const prefix = phoneRaw.substring(0, 2);
+            if (method === 'mpesa' && !['84', '85'].includes(prefix)) {
+                showPaymentResponse(responseDiv, false, 'Número inválido para M-Pesa',
+                    'Para M-Pesa, o número deve começar com 84 ou 85.\nExemplo: 84 123 4567'
+                );
+                return;
+            }
+            if (method === 'emola' && !['86', '87'].includes(prefix)) {
+                showPaymentResponse(responseDiv, false, 'Número inválido para e-Mola',
+                    'Para e-Mola, o número deve começar com 86 ou 87.\nExemplo: 86 123 4567'
+                );
+                return;
+            }
+
+            const phone = '+258' + phoneRaw;
+
+            // ===== PAYLOAD =====
+            const payload = {
+                action: 'process',
+                payment_method: method,
+                merchant_id: CONFIG.MERCHANT_ID,
+                wallet_code: CONFIG.WALLET_CODES[method],
+                amount: amount,
+                currency: CONFIG.CURRENCY,
+                phone: phone
+            };
+
+            // ===== LOADING =====
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-small"></span> Processando...';
+            responseDiv.classList.remove('show', 'success', 'error');
+
+            console.log('📤 Enviando pagamento:', JSON.stringify(payload, null, 2));
+
+            try {
+                const response = await fetch(CONFIG.API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${CONFIG.API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success !== false) {
+                    showPaymentResponse(responseDiv, true, '✅ Pagamento iniciado!',
+                        `📱 Telefone: ${phone}\n` +
+                        `💰 Serviço: ${serviceName}\n` +
+                        `💵 Valor: ${amount.toFixed(2)} ${CONFIG.CURRENCY}\n` +
+                        `🆔 Transação: ${data.transaction_id || data.id || data.reference || 'N/A'}\n\n` +
+                        `📌 Uma notificação USSD foi enviada para o seu telemóvel.\n` +
+                        `Confirme a transação no seu celular.` +
+                        (data.status ? `\n\n📊 Status: ${data.status}` : '')
+                    );
+                } else {
+                    const errorMsg = data.error || data.message || 'Erro desconhecido';
+                    showPaymentResponse(responseDiv, false, '❌ Falha no pagamento',
+                        `Erro: ${errorMsg}\n\n` +
+                        `📱 Telefone: ${phone}\n` +
+                        `💰 Serviço: ${serviceName}\n` +
+                        `💵 Valor: ${amount.toFixed(2)} ${CONFIG.CURRENCY}\n\n` +
+                        `📋 Detalhes:\n${JSON.stringify(data, null, 2)}`
+                    );
+                }
+
+            } catch (error) {
+                showPaymentResponse(responseDiv, false, '❌ Erro de conexão',
+                    `Não foi possível conectar ao servidor.\n\n` +
+                    `Erro: ${error.message}\n\n` +
+                    `Verifique sua conexão com a internet.`
+                );
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fas fa-credit-card"></i> Pagar com ${method === 'mpesa' ? 'M-Pesa' : 'e-Mola'}`;
+            }
+        }
+
+        // ===== EXIBIR RESPOSTA DO PAGAMENTO =====
+        function showPaymentResponse(responseDiv, success, title, content) {
+            responseDiv.classList.remove('success', 'error');
+            responseDiv.classList.add('show', success ? 'success' : 'error');
+
+            const icon = responseDiv.querySelector('.response-icon');
+            const titleEl = responseDiv.querySelector('.response-title-text');
+            const bodyEl = responseDiv.querySelector('.response-body');
+
+            icon.textContent = success ? '✅' : '❌';
+            titleEl.textContent = title;
+            bodyEl.textContent = content;
+
+            responseDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ===== EVENTOS DOS BOTÕES DE PAGAMENTO =====
+        document.querySelectorAll('.btn-pay').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const method = this.getAttribute('data-method');
+                const card = this.closest('.payment-card');
+                processPayment(method, card);
+            });
+        });
+
+        // ================================================================
+        // SCROLL ANIMATION
+        // ================================================================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -2425,8 +2753,7 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.service-card, .values-card, .mission-card, .vision-card, .gallery-item, .video-card').forEach(el => {
+        document.querySelectorAll('.service-card, .values-card, .mission-card, .vision-card, .gallery-item, .video-card, .payment-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
